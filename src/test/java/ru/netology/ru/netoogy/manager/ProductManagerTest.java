@@ -30,13 +30,6 @@ class ProductManagerTest {
 
     @BeforeEach
     public void setUp() {
-        doNothing().when(repository).save(book1);
-        doNothing().when(repository).save(book2);
-        doNothing().when(repository).save(smartphone1);
-        doNothing().when(repository).save(smartphone2);
-        doNothing().when(repository).save(book3);
-        doNothing().when(repository).save(smartphone3);
-
         manager.add(book1);
         manager.add(book2);
         manager.add(smartphone1);
@@ -46,7 +39,7 @@ class ProductManagerTest {
     }
 
     @Test
-    void shouldSearchIfExistsName() {
+    void shouldSearchIfExistsBookByName() {
         Product[] returned = new Product[]{book1, book2, smartphone1, smartphone2, book3, smartphone3};
         doReturn(returned).when(repository).findAll();
 
@@ -57,11 +50,55 @@ class ProductManagerTest {
     }
 
     @Test
-    void shouldSearchIfNotExistsName() {
+    void shouldSearchIfNotExistsBookByName() {
         Product[] returned = new Product[]{book1, book2, smartphone1, smartphone2, book3, smartphone3};
         doReturn(returned).when(repository).findAll();
 
         Product[] actual = manager.searchBy("Pascal");
+        Product[] expected = new Product[0];
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSearchIfExistsBookByAuthor() {
+        Product[] returned = new Product[]{book1, book2, smartphone1, smartphone2, book3, smartphone3};
+        doReturn(returned).when(repository).findAll();
+
+        Product[] actual = manager.searchBy("Burd");
+        Product[] expected = new Product[]{book2};
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSearchIfExistsSmrtphoneByManufacturer() {
+        Product[] returned = new Product[]{book1, book2, smartphone1, smartphone2, book3, smartphone3};
+        doReturn(returned).when(repository).findAll();
+
+        Product[] actual = manager.searchBy("Sony");
+        Product[] expected = new Product[]{smartphone1, smartphone2};
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSearchIfExistsSmatrfoneByName() {
+        Product[] returned = new Product[]{smartphone1, smartphone2, smartphone3};
+        doReturn(returned).when(repository).findAll();
+
+        Product[] actual = manager.searchBy("Z1");
+        Product[] expected = new Product[]{smartphone1};
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSearchIfNotExistsSmatrfoneByName() {
+        Product[] returned = new Product[]{book1, book2, smartphone1, smartphone2, book3, smartphone3};
+        doReturn(returned).when(repository).findAll();
+
+        Product[] actual = manager.searchBy("Nokia");
         Product[] expected = new Product[0];
 
         assertArrayEquals(expected, actual);
