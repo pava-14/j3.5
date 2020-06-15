@@ -47,7 +47,7 @@ class ProductManagerTest {
 
     @Test
     void shouldSearchIfExistsName() {
-        Product[] returned = new Product[]{book1, book2};
+        Product[] returned = new Product[]{book1, book2, smartphone1, smartphone2, book3, smartphone3};
         doReturn(returned).when(repository).findAll();
 
         Product[] actual = manager.searchBy("Java");
@@ -58,7 +58,7 @@ class ProductManagerTest {
 
     @Test
     void shouldSearchIfNotExistsName() {
-        Product[] returned = new Product[0];
+        Product[] returned = new Product[]{book1, book2, smartphone1, smartphone2, book3, smartphone3};
         doReturn(returned).when(repository).findAll();
 
         Product[] actual = manager.searchBy("Pascal");
