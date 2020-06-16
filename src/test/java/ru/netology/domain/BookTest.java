@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookTest {
 
     private Book book1 = new Book(1, "Java", 100, "Dane");
-    private Book book3 = new Book(1, "Life", 100, "Smith");
+    private Book book3 = new Book(3, "Life", 100, "Smith");
 
     @Test
     void shouldSuccessMatchesName() {

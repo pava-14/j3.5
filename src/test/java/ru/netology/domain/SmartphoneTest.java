@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SmartphoneTest {
 
-    private Smartphone smartphone1 = new Smartphone(2, "Z1", 10_000, "Sony");
-    private Smartphone smartphone2 = new Smartphone(2, "Note", 10_000, "Sony");
+    private Smartphone smartphone1 = new Smartphone(11, "Z1", 10_000, "Sony");
+    private Smartphone smartphone2 = new Smartphone(22, "Note", 10_000, "Sony");
 
     @Test
     void shouldSuccessMatchesName() {
