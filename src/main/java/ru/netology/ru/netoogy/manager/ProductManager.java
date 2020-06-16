@@ -18,7 +18,8 @@ public class ProductManager {
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
         for (Product item : repository.findAll()) {
-            if (matches(item, text)) {
+            //if (matches(item, text)) {
+            if (item.matches(text)) {
                 int length = result.length + 1;
                 Product[] tmp = new Product[length];
                 System.arraycopy(result, 0, tmp, 0, result.length);
@@ -30,27 +31,27 @@ public class ProductManager {
         return result;
     }
 
-    public boolean matches(Product product, String search) {
-        if (product instanceof Book) {
-            Book book = (Book) product;
-            if (book.getName().equalsIgnoreCase(search)) {
-                return true;
-            }
-            if (book.getAuthor().equalsIgnoreCase(search)) {
-                return true;
-            }
-            return false;
-        }
-        if (product instanceof Smartphone) {
-            Smartphone smartphone = (Smartphone) product;
-            if (smartphone.getName().equalsIgnoreCase(search)) {
-                return true;
-            }
-            if (smartphone.getManufacturer().equalsIgnoreCase(search)) {
-                return true;
-            }
-            return false;
-        }
-        return false;
-    }
+//    public boolean matches(Product product, String search) {
+//        if (product instanceof Book) {
+//            Book book = (Book) product;
+//            if (book.getName().equalsIgnoreCase(search)) {
+//                return true;
+//            }
+//            if (book.getAuthor().equalsIgnoreCase(search)) {
+//                return true;
+//            }
+//            return false;
+//        }
+//        if (product instanceof Smartphone) {
+//            Smartphone smartphone = (Smartphone) product;
+//            if (smartphone.getName().equalsIgnoreCase(search)) {
+//                return true;
+//            }
+//            if (smartphone.getManufacturer().equalsIgnoreCase(search)) {
+//                return true;
+//            }
+//            return false;
+//        }
+//        return false;
+//    }
 }
