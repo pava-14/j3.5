@@ -23,10 +23,10 @@ class ProductManagerTest {
     private ProductManager manager;
     private Book book1 = new Book(1, "Java", 100, "Dane");
     private Smartphone smartphone1 = new Smartphone(2, "Z1", 10_000, "Sony");
-    private Book book2 = new Book(1, "Java", 100, "Burd");
-    private Smartphone smartphone2 = new Smartphone(2, "Note", 10_000, "Sony");
-    private Book book3 = new Book(1, "Life", 100, "Smith");
-    private Smartphone smartphone3 = new Smartphone(2, "S9", 10_000, "Samsung");
+    private Book book2 = new Book(3, "Java", 100, "Burd");
+    private Smartphone smartphone2 = new Smartphone(4, "Note", 10_000, "Sony");
+    private Book book3 = new Book(5, "Life", 100, "Smith");
+    private Smartphone smartphone3 = new Smartphone(6, "S9", 10_000, "Samsung");
 
     @BeforeEach
     public void setUp() {
