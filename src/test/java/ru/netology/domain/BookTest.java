@@ -11,33 +11,21 @@ class BookTest {
 
     @Test
     void shouldSuccessMatchesName() {
-        boolean expected = true;
-        boolean actual = book1.matches("Java");
-
-        assertEquals(actual, expected);
+        assertTrue(book1.matches("Java"));
     }
 
     @Test
     void shouldSuccessMatchesAuthor() {
-        boolean expected = true;
-        boolean actual = book3.matches("Smith");
-
-        assertEquals(actual, expected);
+        assertTrue(book3.matches("Smith"));
     }
 
     @Test
     void shouldUnsuccessMatchesName() {
-        boolean expected = false;
-        boolean actual = book1.matches("Pascal");
-
-        assertEquals(actual, expected);
+        assertFalse(book1.matches("Pascal"));
     }
 
     @Test
     void shouldUnsuccessMatchesAuthor() {
-        boolean expected = false;
-        boolean actual = book3.matches("John");
-
-        assertEquals(actual, expected);
+        assertFalse(book3.matches("John"));
     }
 }

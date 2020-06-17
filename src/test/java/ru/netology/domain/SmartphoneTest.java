@@ -11,33 +11,21 @@ class SmartphoneTest {
 
     @Test
     void shouldSuccessMatchesName() {
-        boolean expected = true;
-        boolean actual = smartphone1.matches("Z1");
-
-        assertEquals(actual, expected);
+        assertTrue(smartphone1.matches("Z1"));
     }
 
     @Test
     void shouldSuccessMatchesManufacturer() {
-        boolean expected = true;
-        boolean actual = smartphone1.matches("Sony");
-
-        assertEquals(actual, expected);
+        assertTrue(smartphone1.matches("Sony"));
     }
 
     @Test
     void shouldUnsuccessMatchesName() {
-        boolean expected = false;
-        boolean actual = smartphone2.matches("Z1");
-
-        assertEquals(actual, expected);
+        assertFalse(smartphone2.matches("Z1"));
     }
 
     @Test
     void shouldUnSuccessMatchesManufacturer() {
-        boolean expected = false;
-        boolean actual = smartphone2.matches("Nokia");
-
-        assertEquals(actual, expected);
+        assertFalse(smartphone2.matches("Nokia"));
     }
 }
